@@ -1,5 +1,14 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import logo from '../../assets/images/logo.svg';
+import iconMenu from '../../assets/images/icon-menu.svg';
+import iconMenuClose from '../../assets/images/icon-menu-close.svg';
+import web3Desktop from '../../assets/images/image-web-3-desktop.jpg';
+import web3Mobile from '../../assets/images/image-web-3-mobile.jpg';
+import retroPcs from '../../assets/images/image-retro-pcs.jpg';
+import topLaptops from '../../assets/images/image-top-laptops.jpg';
+import gamingGrowth from '../../assets/images/image-gaming-growth.jpg';
+
 
 function App() {
   const [ isBigWidth, setIsBigWidth ] = useState(window.innerWidth >= 992);
@@ -13,7 +22,7 @@ function App() {
       <nav className="navbar my-8 lg:mb-10 lg:mt-16">
         <div className='md:container md:mx-auto mx-4 flex justify-between' >
           <a href="/" className='brand'>
-            <img className="w-14 lg:w-20" src="src/assets/images/logo.svg" alt="brand" />
+            <img className="w-14 lg:w-20" src={logo} alt="brand" />
           </a>
 
           {isBigWidth && <div className='collapsed flex-1 flex items-center justify-end'>
@@ -47,7 +56,7 @@ function App() {
           </div>}
 
           <button className= "block lg:hidden" onClick={() => setDisplaySidebar(true)}>
-            <img src={'src/assets/images/icon-menu.svg'} />
+            <img src={iconMenu} />
           </button>
         </div>
       </nav>
@@ -56,7 +65,7 @@ function App() {
         <div className="p-6 fixed w-[70%] max-w[250px] bg-off-white h-full">
           <div className="flex flex-row items-center justify-end">
             <button className= "block mb-16" onClick={() => setDisplaySidebar(false)}>
-              <img src={'src/assets/images/icon-menu-close.svg'} />
+              <img src={iconMenuClose} />
             </button>
           </div>
           
@@ -93,7 +102,7 @@ function App() {
       <main className="mx-4 md:mx-auto md:container ">
         <section className="flex flex-col gap-x-8 lg:flex-row">
           <div className='big-content flex flex-col gap-6 mb-16 grow-[1.5]'>
-            <img src={isBigWidth ? "src/assets/images/image-web-3-desktop.jpg" : "src/assets/images/image-web-3-mobile.jpg"} alt="header-img" />
+            <img src={isBigWidth ? web3Desktop : web3Mobile} alt="header-img" />
             <div className="flex flex-col lg:flex-row gap-x-10">
               <h1 className="font-extrabold text-5xl flex-1 text-very-dark-blue mb-8">
               The Bright Future of Web 3.0?
@@ -135,7 +144,7 @@ function App() {
       
         <section className="flex flex-col gap-y-10 gap-x-20 lg:flex-row lg:justify-between">
           <div className="flex flex-row justify-center gap-6 max-w-[350px]">
-            <img className="w-[100px]" src="src/assets/images/image-retro-pcs.jpg" />
+            <img className="w-[100px]" src={retroPcs} />
             <div className="flex flex-col gap-y-4">
               <h2 className="text-4xl font-extrabold text-grayish-blue">01</h2>
               <h3 className="text-xl text-very-dark-blue font-extrabold">Reviving Retro PCs</h3>
@@ -143,7 +152,7 @@ function App() {
             </div>
           </div>
           <div className="flex flex-row gap-6 max-w-[350px]">
-            <img className="w-[100px]" src="src/assets/images/image-top-laptops.jpg" />
+            <img className="w-[100px]" src={topLaptops} />
             <div className="flex flex-col gap-y-4">
               <h2 className="text-4xl font-extrabold text-grayish-blue">02</h2>
               <h3 className="text-xl text-very-dark-blue font-extrabold">Top 10 Laptops of 2022</h3>
@@ -151,7 +160,7 @@ function App() {
             </div>
           </div>
           <div className="flex flex-row gap-6 max-w-[350px]">
-            <img className="w-[100px]" src="src/assets/images/image-gaming-growth.jpg" />
+            <img className="w-[100px]" src={gamingGrowth} />
             <div className="flex flex-col gap-y-4">
               <h2 className="text-4xl font-extrabold text-grayish-blue">03</h2>
               <h3 className="text-xl text-very-dark-blue font-extrabold">The Growth of Gaming</h3>
