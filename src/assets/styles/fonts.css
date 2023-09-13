@@ -1,0 +1,26 @@
+/* inter-regular - latin */
+/* @font-face {
+    font-display: swap; 
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/static/Inter-Regular.ttf') format('ttf'); 
+  } */
+  /* inter-800 - latin */
+  /* @font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/static/Inter-Bold.ttf') format('ttf'); 
+  } */
+  /* inter-900 - latin */
+  /* @font-face {
+    font-display: swap; 
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/static/Inter-ExtraBold.ttf') format('ttf');
+  } */
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
