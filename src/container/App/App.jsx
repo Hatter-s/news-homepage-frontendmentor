@@ -1,18 +1,22 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, useMemo, useEffect } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [ displayNavbarItems, setDisplayNavbarItems ] =  useState(window.innerWidth >= 992);
+  const [ displaySidebar, setDisplaySidebar ] = useState(false);
+  useEffect(() => {
+    window.addEventListener('resize', () => setDisplayNavbarItems(window.innerWidth >= 992));
+  }, []);
 
   return (
     <div className="App">
     <nav className="navbar">
-      <div className='container mx-auto flex items-center' >
+      <div className='md:container md:mx-auto mx-4 flex justify-between my-4' >
         <a href="/" className='brand'>
-          <img src="/assets/images/logo.svg" alt="brand" />
+          <img src="src/assets/images/logo.svg" alt="brand" />
         </a>
 
-        <div className='collapsed flex-1'>
+        { displayNavbarItems && <div className='collapsed flex-1'>
           <ul className='navitems flex justify-end items-center gap-6'>
             <li className='nav-item'>
               <a href='/' className='home nav-link'>
@@ -40,9 +44,46 @@ function App() {
               </a>
             </li>
           </ul>
-        </div>
+        </div>}
+
+        <button className= "block" onClick={() => setDisplaySidebar(true)}>
+          <img src={'src/assets/images/icon-menu.svg'} />
+        </button>
       </div>
     </nav>
+
+    { displaySidebar && <div className='sidebar flex-1 flex flex-col fixed w-[60%]max-w[250px] p-4 top-0 right-0'>
+    <button className= "block justify-self-end" onClick={() => setDisplaySidebar(false)}>
+          <img src={'src/assets/images/close-icon-menu.svg'} />
+        </button>
+          <ul className='sidebar-items flex flex-col items-start justify-center gap-6'>
+            <li className='side-item'>
+              <a href='/' className='home side-link'>
+                Home
+              </a>
+            </li>
+            <li className='side-item'>
+              <a href='/' className='home side-link'>
+                New
+              </a>
+            </li>
+            <li className='side-item'>
+              <a href='/' className='home side-link'>
+                Popular
+              </a>
+            </li>
+            <li className='side-item'>
+              <a href='/' className='home side-link'>
+                Trending
+              </a>
+            </li>
+            <li className='side-item'>
+              <a href='/' className='home side-link'>
+              Categories
+              </a>
+            </li>
+          </ul>
+        </div>}
   
   <main>
     <section className='big-content'>
